@@ -140,6 +140,3 @@
  | ScreenCaptureTest | 是 | 否 |
  | TemplateMatcherTest | 是 | 否 |
  
- ## 许可证
- 
- MIT
