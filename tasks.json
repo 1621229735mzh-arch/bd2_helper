@@ -1,0 +1,254 @@
+{
+  "tasks": [
+    {
+      "name": "test",
+      "actions": [
+        {
+          "type": "click",
+          "x": 86,
+          "y": 114
+        }
+      ]
+    },
+    {
+      "name": "公会签到",
+      "actions": [
+        {
+          "type": "click",
+          "x": 120,
+          "y": 43
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 333,
+          "y": 322
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "小屋打卡",
+      "actions": [
+        {
+          "type": "click",
+          "x": 53,
+          "y": 42
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "街机周签",
+      "actions": [
+        {
+          "type": "click",
+          "x": 149,
+          "y": 77
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "抽抽乐",
+      "actions": [
+        {
+          "type": "click",
+          "x": 52,
+          "y": 436
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 109,
+          "y": 431
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 342,
+          "y": 264
+        },
+        {
+          "type": "wait",
+          "durationMs": 60000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "click",
+          "x": 54,
+          "y": 192
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 109,
+          "y": 431
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 342,
+          "y": 264
+        },
+        {
+          "type": "wait",
+          "durationMs": 60000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "资源提取",
+      "actions": [
+        {
+          "type": "click",
+          "x": 53,
+          "y": 76
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 362,
+          "y": 322
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 321,
+          "y": 352
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 89,
+          "y": 246
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "广场签到",
+      "actions": [
+        {
+          "type": "click",
+          "x": 557,
+          "y": 414
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 617,
+          "y": 332
+        },
+        {
+          "type": "wait",
+          "durationMs": 10000
+        },
+        {
+          "type": "keypress",
+          "key": "f"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 348,
+          "y": 361
+        },
+        {
+          "type": "keypress",
+          "key": "h"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    }
+  ],
+  "queue": []
+}
