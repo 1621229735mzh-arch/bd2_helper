@@ -224,7 +224,7 @@
         },
         {
           "type": "wait",
-          "durationMs": 10000
+          "durationMs": 15000
         },
         {
           "type": "keypress",
@@ -248,7 +248,757 @@
           "durationMs": 5000
         }
       ]
+    },
+    {
+      "name": "镜像战斗",
+      "actions": [
+        {
+          "type": "click",
+          "x": 558,
+          "y": 415
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 79,
+          "y": 332
+        },
+        {
+          "type": "wait",
+          "durationMs": 15000
+        },
+        {
+          "type": "click",
+          "x": 261,
+          "y": 256
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 500,
+          "y": 431
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 341,
+          "y": 321
+        },
+        {
+          "type": "wait",
+          "durationMs": 40000
+        },
+        {
+          "type": "click",
+          "x": 392,
+          "y": 154
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 348,
+          "y": 440
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "h"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "史莱姆与宝石",
+      "actions": [
+        {
+          "type": "click",
+          "x": 581,
+          "y": 77
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 56,
+          "y": 105
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 533,
+          "y": 439
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 391,
+          "y": 220
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 342,
+          "y": 311
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 316,
+          "y": 376
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 54,
+          "y": 140
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 540,
+          "y": 440
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 386,
+          "y": 220
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 347,
+          "y": 308
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 313,
+          "y": 396
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "任务奖励",
+      "actions": [
+        {
+          "type": "click",
+          "x": 221,
+          "y": 439
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 557,
+          "y": 444
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 321,
+          "y": 421
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 96,
+          "y": 66
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 557,
+          "y": 444
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 321,
+          "y": 421
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
     }
   ],
-  "queue": []
+  "queue": [
+    {
+      "name": "公会签到",
+      "actions": [
+        {
+          "type": "click",
+          "x": 120,
+          "y": 43
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 333,
+          "y": 322
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "小屋打卡",
+      "actions": [
+        {
+          "type": "click",
+          "x": 53,
+          "y": 42
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "街机周签",
+      "actions": [
+        {
+          "type": "click",
+          "x": 149,
+          "y": 77
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "抽抽乐",
+      "actions": [
+        {
+          "type": "click",
+          "x": 52,
+          "y": 436
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 109,
+          "y": 431
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 342,
+          "y": 264
+        },
+        {
+          "type": "wait",
+          "durationMs": 60000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "click",
+          "x": 54,
+          "y": 192
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 109,
+          "y": 431
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 342,
+          "y": 264
+        },
+        {
+          "type": "wait",
+          "durationMs": 60000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "资源提取",
+      "actions": [
+        {
+          "type": "click",
+          "x": 53,
+          "y": 76
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 362,
+          "y": 322
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 321,
+          "y": 352
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 89,
+          "y": 246
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "史莱姆与宝石",
+      "actions": [
+        {
+          "type": "click",
+          "x": 581,
+          "y": 77
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 56,
+          "y": 105
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 533,
+          "y": 439
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 391,
+          "y": 220
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 342,
+          "y": 311
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 316,
+          "y": 376
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 54,
+          "y": 140
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 540,
+          "y": 440
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 386,
+          "y": 220
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 347,
+          "y": 308
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 313,
+          "y": 396
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "广场签到",
+      "actions": [
+        {
+          "type": "click",
+          "x": 557,
+          "y": 414
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 617,
+          "y": 332
+        },
+        {
+          "type": "wait",
+          "durationMs": 15000
+        },
+        {
+          "type": "keypress",
+          "key": "f"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 348,
+          "y": 361
+        },
+        {
+          "type": "keypress",
+          "key": "h"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "镜像战斗",
+      "actions": [
+        {
+          "type": "click",
+          "x": 558,
+          "y": 415
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 79,
+          "y": 332
+        },
+        {
+          "type": "wait",
+          "durationMs": 15000
+        },
+        {
+          "type": "click",
+          "x": 261,
+          "y": 256
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 500,
+          "y": 431
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 341,
+          "y": 321
+        },
+        {
+          "type": "wait",
+          "durationMs": 40000
+        },
+        {
+          "type": "click",
+          "x": 392,
+          "y": 154
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 348,
+          "y": 440
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "h"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    },
+    {
+      "name": "任务奖励",
+      "actions": [
+        {
+          "type": "click",
+          "x": 221,
+          "y": 439
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 557,
+          "y": 444
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 321,
+          "y": 421
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 96,
+          "y": 66
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 557,
+          "y": 444
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "click",
+          "x": 321,
+          "y": 421
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        },
+        {
+          "type": "keypress",
+          "key": "esc"
+        },
+        {
+          "type": "wait",
+          "durationMs": 5000
+        }
+      ]
+    }
+  ]
 }

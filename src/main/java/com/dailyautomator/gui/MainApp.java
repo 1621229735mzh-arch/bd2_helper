@@ -498,6 +498,7 @@ public class MainApp extends Application {
         TaskDefinition copy = new TaskDefinition(task.getName(), task.getActions());
         queueTasks.add(copy);
         rebuildQueueList();
+        repo.saveAll(allTasks, queueTasks);
         log("\u5DF2\u6DFB\u52A0\u5230\u961F\u5217\uFF1A" + task.getName());
     }
 
