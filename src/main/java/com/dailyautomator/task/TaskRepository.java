@@ -44,7 +44,9 @@ public class TaskRepository {
                     if (a != null) actions.add(a);
                 }
             }
-            list.add(new TaskDefinition(name, actions));
+            TaskDefinition td = new TaskDefinition(name, actions);
+            if (obj.has("breakpoint")) td.setBreakpoint(obj.get("breakpoint").getAsBoolean());
+            list.add(td);
         }
         return list;
     }
@@ -111,8 +113,9 @@ public class TaskRepository {
                 obj.addProperty("name", task.getName());
                 JsonArray actionsArr = new JsonArray();
                 for (Action a : task.getActions()) actionsArr.add(gson.toJsonTree(a));
-                obj.add("actions", actionsArr);
-                queueArr.add(obj);
+               obj.add("actions", actionsArr);
+                obj.addProperty("breakpoint", task.isBreakpoint());
+               queueArr.add(obj);
             }
             root.add("queue", queueArr);
 

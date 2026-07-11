@@ -38,9 +38,10 @@ public class MainApp extends Application {
     private Label currentTaskLabel;
     private ProgressBar progressBar;
     private TextArea logArea;
-    private Button startButton;
-    private Button stopButton;
-    private boolean coordsTracking = false;
+   private Button startButton;
+   private Button stopButton;
+  private Button pauseButton;
+  private boolean coordsTracking = false;
     private Thread coordThread;
     private Thread workerThread;
     private Label coordLabel;
@@ -216,13 +217,15 @@ public class MainApp extends Application {
         addBtn.setOnAction(e -> addToQueue());
         Button upBtn = new Button("\u4E0A\u79FB");
         upBtn.setOnAction(e -> moveQueueItem(-1));
-        Button dnBtn = new Button("\u4E0B\u79FB");
-        dnBtn.setOnAction(e -> moveQueueItem(1));
-        Button removeBtn = new Button("\u79FB\u9664");
+       Button dnBtn = new Button("\u4E0B\u79FB");
+       dnBtn.setOnAction(e -> moveQueueItem(1));
+        Button bpBtn = new Button("\u65AD\u70B9");
+        bpBtn.setOnAction(e -> toggleQueueBreakpoint());
+       Button removeBtn = new Button("\u79FB\u9664");
         removeBtn.setOnAction(e -> removeFromQueue());
         Button clearBtn = new Button("\u6E05\u7A7A");
         clearBtn.setOnAction(e -> clearQueue());
-        btnRow.getChildren().addAll(addBtn, upBtn, dnBtn, removeBtn, clearBtn);
+        btnRow.getChildren().addAll(addBtn, upBtn, dnBtn, bpBtn, removeBtn, clearBtn);
 
         panel.getChildren().addAll(title, queueListView, btnRow);
         return panel;
@@ -236,14 +239,20 @@ public class MainApp extends Application {
 
         startButton = new Button("\u5F00\u59CB");
         startButton.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-base: #4CAF50;");
-        startButton.setOnAction(e -> startAutomation());
+       startButton.setOnAction(e -> startAutomation());
 
-        stopButton = new Button("\u505C\u6B62");
+        pauseButton = new Button("\u6682\u505C");
+        pauseButton.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-base: #ff9800;");
+        pauseButton.setDisable(true);
+        pauseButton.setOnAction(e -> togglePause());
+
+       stopButton = new Button("\u505C\u6B62");
         stopButton.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-base: #f44336;");
         stopButton.setDisable(true);
-        stopButton.setOnAction(e -> stopAutomation());
+      stopButton.setOnAction(e -> stopAutomation());
 
-        Button coordBtn = new Button("\u5750\u6807");
+
+      Button coordBtn = new Button("\u5750\u6807");
         coordBtn.setOnAction(e -> toggleCoords());
 
         Button testBtn = new Button("\u6D4B\u8BD5\u70B9\u51FB");
@@ -262,8 +271,8 @@ public class MainApp extends Application {
         Button clearLogBtn = new Button("\u6E05\u9664\u65E5\u5FD7");
         clearLogBtn.setOnAction(e -> logArea.clear());
 
-        bar.getChildren().addAll(startButton, stopButton, coordBtn, testBtn, ssBtn, saveBtn, guiweiBtn, clearLogBtn);
-        return bar;
+        bar.getChildren().addAll(startButton, stopButton, pauseButton, coordBtn, testBtn, ssBtn, saveBtn, guiweiBtn, clearLogBtn);
+       return bar;
     }
 
     // ── Status Row ──────────────────────────────────────────
@@ -502,9 +511,9 @@ public class MainApp extends Application {
         log("\u5DF2\u6DFB\u52A0\u5230\u961F\u5217\uFF1A" + task.getName());
     }
 
-    private void rebuildQueueList() {
-        queueListView.getItems().setAll(queueTasks.stream().map(t -> t.getName() + " (" + t.actionCount() + " \u6B65)").toList());
-    }
+   private void rebuildQueueList() {
+        queueListView.getItems().setAll(queueTasks.stream().map(t -> (t.isBreakpoint() ? "\uD83D\uDD34 " : "\u26AA ") + t.getName() + " (" + t.actionCount() + " \u6B65)").toList());
+   }
 
     private void moveQueueItem(int d) {
         int idx = queueListView.getSelectionModel().getSelectedIndex();
@@ -538,16 +547,34 @@ public class MainApp extends Application {
         }
     }
 
+    private void toggleQueueBreakpoint() {
+        int idx = queueListView.getSelectionModel().getSelectedIndex();
+        if (idx < 0 || idx >= queueTasks.size()) { log("请选择队列中的任务。"); return; }
+        TaskDefinition task = queueTasks.get(idx);
+        task.setBreakpoint(!task.isBreakpoint());
+        rebuildQueueList();
+        repo.saveAll(allTasks, queueTasks);
+        log("任务 \"" + task.getName() + "\" " + (task.isBreakpoint() ? "已设置断点" : "已移除断点") + "。");
+    }
+
     // ── Automation ──────────────────────────────────────────
 
-    private void startAutomation() {
-        if (taskRunner.isRunning()) { log("\u6B63\u5728\u8FD0\u884C\u4E2D\u3002"); return; }
-        if (queueTasks.isEmpty()) { log("\u542F\u52A8\u961F\u5217\u4E3A\u7A7A\uFF0C\u8BF7\u5148\u6DFB\u52A0\u4EFB\u52A1\u3002"); return; }
-        startButton.setDisable(true);
-        stopButton.setDisable(false);
-        setStatus("\u8FD0\u884C\u4E2D", "#e65100");
-        log("\u6B63\u5728\u542F\u52A8 " + queueTasks.size() + " \u4E2A\u4EFB\u52A1...");
-        List<TaskDefinition> runTasks = new ArrayList<>(queueTasks);
+   private void startAutomation() {
+       if (taskRunner.isRunning()) { log("\u6B63\u5728\u8FD0\u884C\u4E2D\u3002"); return; }
+       if (queueTasks.isEmpty()) { log("\u542F\u52A8\u961F\u5217\u4E3A\u7A7A\uFF0C\u8BF7\u5148\u6DFB\u52A0\u4EFB\u52A1\u3002"); return; }
+       startButton.setDisable(true);
+       stopButton.setDisable(false);
+        pauseButton.setDisable(false);
+       pauseButton.setText("\u6682\u505C");
+       pauseButton.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-base: #ff9800;");
+      setStatus("\u8FD0\u884C\u4E2D", "#e65100");
+       log("\u6B63\u5728\u542F\u52A8 " + queueTasks.size() + " \u4E2A\u4EFB\u52A1...");
+        taskRunner.setOnAutoPaused(() -> Platform.runLater(() -> {
+            pauseButton.setText("\u7EE7\u7EED");
+            pauseButton.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-base: #2196f3;");
+            setStatus("\u5DF2\u6682\u505C", "#ff9800");
+        }));
+       List<TaskDefinition> runTasks = new ArrayList<>(queueTasks);
         workerThread = new Thread(() -> {
             try {
                 taskRunner.setLogCallback(m -> Platform.runLater(() -> log(m)));
@@ -559,8 +586,10 @@ public class MainApp extends Application {
             } finally {
                 Platform.runLater(() -> {
                     startButton.setDisable(false);
-                    stopButton.setDisable(true);
-                    currentTaskLabel.setText("(\u65E0)");
+                   stopButton.setDisable(true);
+                    pauseButton.setDisable(true);
+                    pauseButton.setText("\u6682\u505C");
+                   currentTaskLabel.setText("(\u65E0)");
                     setStatus("\u5C31\u7EEA", "#2e7d32");
                     log("\u81EA\u52A8\u5316\u8FD0\u884C\u5B8C\u6210\u3002");
                 });
@@ -576,12 +605,30 @@ public class MainApp extends Application {
         return f;
     }
 
-    private void stopAutomation() {
-        taskRunner.stop();
-        if (workerThread != null) workerThread.interrupt();
-        stopButton.setDisable(true);
-        setStatus("\u6B63\u5728\u505C\u6B62...", "#e65100");
-        log("\u5DF2\u8BF7\u6C42\u505C\u6B62\u3002");
+   private void stopAutomation() {
+       taskRunner.stop();
+       if (workerThread != null) workerThread.interrupt();
+       stopButton.setDisable(true);
+        pauseButton.setDisable(true);
+        pauseButton.setText("\u6682\u505C");
+       setStatus("\u6B63\u5728\u505C\u6B62...", "#e65100");
+       log("\u5DF2\u8BF7\u6C42\u505C\u6B62\u3002");
+   }
+
+    private void togglePause() {
+        if (taskRunner.isPaused()) {
+            taskRunner.resume();
+            pauseButton.setText("\u6682\u505C");
+            pauseButton.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-base: #ff9800;");
+            setStatus("\u8FD0\u884C\u4E2D", "#e65100");
+            log("\u5DF2\u6062\u590D\u8FD0\u884C\u3002");
+        } else {
+            taskRunner.pause();
+            pauseButton.setText("\u7EE7\u7EED");
+            pauseButton.setStyle("-fx-font-size: 13px; -fx-font-weight: bold; -fx-base: #2196f3;");
+            setStatus("\u5DF2\u6682\u505C", "#ff9800");
+            log("\u5DF2\u6682\u505C\u3002");
+        }
     }
 
     // ── Coords & Test Click ─────────────────────────────────

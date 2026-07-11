@@ -6,7 +6,9 @@ import java.util.List;
 
 public class TaskDefinition {
     private String name;
-    private final List<Action> actions;
+   private final List<Action> actions;
+
+    private boolean breakpoint = false;
 
     public TaskDefinition(String name) {
         this.name = name;
@@ -20,6 +22,10 @@ public class TaskDefinition {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+
+    public boolean isBreakpoint() { return breakpoint; }
+    public void setBreakpoint(boolean b) { this.breakpoint = b; }
+
     public List<Action> getActions() { return Collections.unmodifiableList(actions); }
     public void addAction(Action action) { actions.add(action); }
     public void removeAction(int index) { if (index >= 0 && index < actions.size()) actions.remove(index); }
